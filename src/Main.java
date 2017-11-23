@@ -11,6 +11,7 @@ public class Main {
         while (true) {
             String line = in.nextLine();
             Scanner sline = new Scanner(line);
+
             String cmd = sline.next();
 
             if (cmd.compareTo("move") == 0)
