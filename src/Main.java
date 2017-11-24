@@ -16,7 +16,8 @@ public class Main {
 
             if (cmd.compareTo("move") == 0)
                 game.move(sline.nextLine());
-
+            else if (cmd.compareTo("fim") == 0)
+                break;
             game.printBoard();
         }
     }
