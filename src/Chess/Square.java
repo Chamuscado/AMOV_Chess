@@ -1,9 +1,9 @@
 package Chess;
 
-import Chess.Pieces.Piece;
+import Chess.Pieces.PieceInterface;
 
 public class Square {
-    Piece piece;
+    PieceInterface piece;
     int color;
     int backColor;
 
@@ -13,17 +13,17 @@ public class Square {
         color = 0;
     }
 
-    public Piece removePiece() {
-        Piece p = piece;
+    public PieceInterface removePiece() {
+        PieceInterface p = piece;
         piece = null;
         return p;
     }
 
-    public Piece getPiece() {
+    public PieceInterface getPiece() {
         return piece;
     }
 
-    public void setPiece(Piece piece) {
+    public void setPiece(PieceInterface piece) {
         this.piece = piece;
     }
 

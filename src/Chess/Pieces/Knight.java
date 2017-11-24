@@ -1,15 +1,10 @@
 package Chess.Pieces;
 
-public class Knight implements Piece {
+public class Knight extends Piece{
 
     @Override
     public byte getPlayer() {
         return 0;
-    }
-
-    @Override
-    public int[][] gerDesloc() {
-        return new int[0][];
     }
 
     @Override

@@ -1,17 +1,8 @@
 package Chess.Pieces;
 
-public class Bishop implements Piece {
+import Chess.Board;
 
-
-    @Override
-    public byte getPlayer() {
-        return 0;
-    }
-
-    @Override
-    public int[][] gerDesloc() {
-        return new int[0][];
-    }
+public class Bishop extends Piece{
 
     @Override
     public String toString() {

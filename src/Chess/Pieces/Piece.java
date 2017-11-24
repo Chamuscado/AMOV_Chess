@@ -1,9 +1,15 @@
 package Chess.Pieces;
 
-public interface Piece {
+import Chess.Board;
 
-    public byte getPlayer();
-    public int[][] gerDesloc();
+public class Piece implements PieceInterface{
+    @Override
+    public byte getPlayer() {
+        return 0;
+    }
 
-
+    @Override
+    public int[][] gerDesloc(Board board) {
+        return new int[0][];
+    }
 }

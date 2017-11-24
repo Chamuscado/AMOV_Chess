@@ -5,7 +5,7 @@ import Chess.Pieces.*;
 import java.util.ArrayList;
 
 public class Chess {
-    ArrayList<Piece>[] pieces;
+    ArrayList<PieceInterface>[] pieces;
     Board board;
 
     public Chess() {
@@ -51,5 +51,7 @@ public class Chess {
     public void printBoard() {
         board.printBoard();
     }
+
+
 
 }

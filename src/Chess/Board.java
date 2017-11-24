@@ -1,6 +1,6 @@
 package Chess;
 
-import Chess.Pieces.Piece;
+import Chess.Pieces.PieceInterface;
 
 import java.util.ArrayList;
 
@@ -14,7 +14,7 @@ public class Board {
                 board[i][j] = new Square();
     }
 
-    public void initBoard(ArrayList<Piece>[] pieces) {
+    public void initBoard(ArrayList<PieceInterface>[] pieces) {
         for (int j = 0; j < 2; j++) {
             for (int i = 0; i < 8; i++)
                 board[j][i].setPiece(pieces[0].get(j * 8 + i));
@@ -30,7 +30,7 @@ public class Board {
 
         if (board[pos1.X][pos1.Y].piece == null)
             return;
-        Piece piece = board[pos1.X][pos1.Y].removePiece();
+        PieceInterface piece = board[pos1.X][pos1.Y].removePiece();
         board[pos2.X][pos2.Y].piece = piece;
     }
 

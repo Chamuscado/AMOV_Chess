@@ -1,15 +1,10 @@
 package Chess.Pieces;
 
-public class Pawn implements Piece {
+public class Pawn extends Piece {
 
     @Override
     public byte getPlayer() {
         return 0;
-    }
-
-    @Override
-    public int[][] gerDesloc() {
-        return new int[0][];
     }
 
     @Override
