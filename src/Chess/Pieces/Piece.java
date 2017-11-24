@@ -1,11 +1,18 @@
 package Chess.Pieces;
 
 import Chess.Board;
+import Chess.Player;
 import Chess.Square;
 
 public class Piece implements PieceInterface {
 
-    Square square;
+    private Square square;
+    private Player player;
+
+    public Piece(Player player) {
+        this.player = player;
+    }
+
 
     public Square getSquare() {
         return square;
@@ -16,8 +23,8 @@ public class Piece implements PieceInterface {
     }
 
     @Override
-    public byte getPlayer() {
-        return 0;
+    public Player getPlayer() {
+        return player;
     }
 
     @Override

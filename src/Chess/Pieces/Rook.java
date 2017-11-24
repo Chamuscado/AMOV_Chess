@@ -1,18 +1,18 @@
 package Chess.Pieces;
 
 import Chess.Board;
-import Chess.Square;
+import Chess.CoordV2;
+import Chess.Player;
 
 public class Rook extends Piece {
 
-    @Override
-    public byte getPlayer() {
-        return 0;
+    public Rook(Player player) {
+        super(player);
     }
 
     @Override
     public String toString() {
-        return "R(" + getSquare().getX()+"/"+getSquare().getY();
+        return "R(" + getSquare().getX() + "/" + getSquare().getY() + ")";
     }
 
     @Override
@@ -21,6 +21,12 @@ public class Rook extends Piece {
         for (int i = 0; i < mat.length; ++i)
             for (int j = 0; j < mat[i].length; ++j)
                 mat[i][j] = 0;
+
+        CoordV2 pos = getSquare().getPos();
+
+        for (int i = pos.getX(); i < mat.length; ++i)
+            //if ()
+                mat[pos.getY()][i] = 1;
 
         return mat;
     }

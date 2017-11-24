@@ -5,31 +5,31 @@ import Chess.Pieces.*;
 import java.util.ArrayList;
 
 public class Chess {
-    ArrayList<Piece>[] pieces;
+    Player[] players;
     Board board;
 
     public Chess() {
-        pieces = new ArrayList[2];
-        pieces[0] = new ArrayList<>();
-        pieces[1] = new ArrayList<>();
+        players = new Player[2];
+        players[0] = new Player();
+        players[1] = new Player();
         board = new Board(new CoordV2(8, 8));
 
     }
 
     public void initBoard() {
         for (int j = 0; j < 2; j++) {
-            pieces[j].add(new Rook());
-            pieces[j].add(new Knight());
-            pieces[j].add(new Bishop());
-            pieces[j].add(new Queen());
-            pieces[j].add(new King());
-            pieces[j].add(new Bishop());
-            pieces[j].add(new Knight());
-            pieces[j].add(new Rook());
+            players[j].addPiece(new Rook(players[j]));
+            players[j].addPiece(new Knight(players[j]));
+            players[j].addPiece(new Bishop(players[j]));
+            players[j].addPiece(new Queen(players[j]));
+            players[j].addPiece(new King(players[j]));
+            players[j].addPiece(new Bishop(players[j]));
+            players[j].addPiece(new Knight(players[j]));
+            players[j].addPiece(new Rook(players[j]));
             for (int i = 0; i < 8; i++)
-                pieces[j].add(new Pawn());
+                players[j].addPiece(new Pawn(players[j]));
         }
-        board.initBoard(pieces);
+        board.initBoard(players);
     }
 
     public void move(Coord pos1, Coord pos2) {
@@ -51,7 +51,6 @@ public class Chess {
     public void printBoard() {
         board.printBoard();
     }
-
 
 
 }

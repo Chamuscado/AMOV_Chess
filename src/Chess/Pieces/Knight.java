@@ -1,10 +1,11 @@
 package Chess.Pieces;
 
-public class Knight extends Piece{
+import Chess.Player;
 
-    @Override
-    public byte getPlayer() {
-        return 0;
+public class Knight extends Piece {
+
+    public Knight(Player player) {
+        super(player);
     }
 
     @Override

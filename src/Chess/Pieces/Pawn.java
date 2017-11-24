@@ -1,10 +1,12 @@
 package Chess.Pieces;
 
+import Chess.Player;
+
 public class Pawn extends Piece {
 
-    @Override
-    public byte getPlayer() {
-        return 0;
+
+    public Pawn(Player player) {
+        super(player);
     }
 
     @Override
