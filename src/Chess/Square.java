@@ -1,30 +1,50 @@
 package Chess;
 
-import Chess.Pieces.PieceInterface;
+import Chess.Pieces.Piece;
 
 public class Square {
-    PieceInterface piece;
-    int color;
-    int backColor;
+    private int x, y;
+    private Piece piece;
+    private int color;
+    private int backColor;
 
-    public Square() {
+    public Square(int x, int y) {
         piece = null;
         color = 0;
         color = 0;
+        this.x = x;
+        this.y = y;
     }
 
-    public PieceInterface removePiece() {
-        PieceInterface p = piece;
+    public CoordV2 getPos() {
+        return new CoordV2(x, y);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public Piece removePiece() {
+        Piece p = piece;
         piece = null;
         return p;
     }
 
-    public PieceInterface getPiece() {
+    public Piece getPiece() {
         return piece;
     }
 
-    public void setPiece(PieceInterface piece) {
+    public void setPiece(Piece piece) {
+        piece.setSquare(this);
         this.piece = piece;
+    }
+
+    public Boolean hasPiece() {
+        return piece != null;
     }
 
     public int getColor() {

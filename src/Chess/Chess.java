@@ -5,7 +5,7 @@ import Chess.Pieces.*;
 import java.util.ArrayList;
 
 public class Chess {
-    ArrayList<PieceInterface>[] pieces;
+    ArrayList<Piece>[] pieces;
     Board board;
 
     public Chess() {

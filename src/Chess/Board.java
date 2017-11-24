@@ -1,6 +1,6 @@
 package Chess;
 
-import Chess.Pieces.PieceInterface;
+import Chess.Pieces.Piece;
 
 import java.util.ArrayList;
 
@@ -11,10 +11,10 @@ public class Board {
         board = new Square[size.X][size.Y];
         for (int i = 0; i < size.X; ++i)
             for (int j = 0; j < size.X; ++j)
-                board[i][j] = new Square();
+                board[i][j] = new Square(i, j);
     }
 
-    public void initBoard(ArrayList<PieceInterface>[] pieces) {
+    public void initBoard(ArrayList<Piece>[] pieces) {
         for (int j = 0; j < 2; j++) {
             for (int i = 0; i < 8; i++)
                 board[j][i].setPiece(pieces[0].get(j * 8 + i));
@@ -26,12 +26,24 @@ public class Board {
         }
     }
 
-    public void movePiece(CoordV2 pos1, CoordV2 pos2) {
+    public Piece getPieceAt(CoordV2 pos) {
+        return getPieceAt(pos.X, pos.Y);
+    }
 
-        if (board[pos1.X][pos1.Y].piece == null)
+    public Piece getPieceAt(int x, int y) {
+        if (x < 0 || x > board.length)
+            throw new IllegalArgumentException("<geyPieceAT error>: Coluna Inválida : " + x);
+        if (y < 0 || y > board[x].length)
+            throw new IllegalArgumentException("<geyPieceAT error>: Linha Inválida : " + y);
+        return board[x][y].getPiece();
+    }
+
+
+    public void movePiece(CoordV2 pos1, CoordV2 pos2) {
+        if (!board[pos1.X][pos1.Y].hasPiece())
             return;
-        PieceInterface piece = board[pos1.X][pos1.Y].removePiece();
-        board[pos2.X][pos2.Y].piece = piece;
+        Piece piece = board[pos1.X][pos1.Y].removePiece();
+        board[pos2.X][pos2.Y].setPiece(piece);
     }
 
     public void printBoard() {
