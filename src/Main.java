@@ -1,4 +1,4 @@
-import Chess.Chess;
+import Chess.*;
 
 import java.util.Scanner;
 
@@ -18,6 +18,14 @@ public class Main {
                 game.move(sline.nextLine());
             else if (cmd.compareTo("fim") == 0)
                 break;
+            else if (cmd.compareTo("select") == 0) {
+                cmd = sline.next();
+                game.setSelected(new Coord(cmd.charAt(0), cmd.charAt(1) - '0'));
+            } else if (cmd.compareTo("moveto") == 0) {
+                cmd = sline.next();
+                game.moveTo(new Coord(cmd.charAt(0), cmd.charAt(1) - '0'));
+            }
+
             game.printBoard();
         }
     }

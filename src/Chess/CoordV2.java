@@ -24,7 +24,7 @@ public class CoordV2 {
         Y = y;
     }
     public CoordV2(Coord cord) {
-        X = cord.getLetAsInd();
-        Y = cord.getNumbAsInd();
+        Y = cord.getLetAsInd();
+        X = cord.getNumbAsInd();
     }
 }

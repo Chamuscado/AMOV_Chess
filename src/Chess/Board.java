@@ -14,14 +14,14 @@ public class Board {
                 board[i][j] = new Square(i, j);
     }
 
-    public void initBoard(Player[] playeres) {
+    public void initBoard(Player[] players) {
 
-        ArrayList<Piece> pieces = playeres[0].getPieces();
+        ArrayList<Piece> pieces = players[0].getPieces();
         for (int j = 0; j < 2; j++) {
             for (int i = 0; i < 8; i++)
                 board[j][i].setPiece(pieces.get(j * 8 + i));
         }
-        pieces = playeres[1].getPieces();
+        pieces = players[1].getPieces();
         int aux = pieces.size() - 1;
         for (int j = 6; j < 8; j++) {
             for (int i = 0; i < 8; i++, aux--)
