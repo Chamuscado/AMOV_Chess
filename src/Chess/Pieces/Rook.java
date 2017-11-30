@@ -12,7 +12,7 @@ public class Rook extends Piece {
 
     @Override
     public String toString() {
-        return "R";//(" + getSquare().getX() + "/" + getSquare().getY() + ")";
+        return "R(" + getSquare().getX() + "/" + getSquare().getY() + ")";
     }
 
     @Override

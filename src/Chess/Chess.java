@@ -7,14 +7,13 @@ import java.util.ArrayList;
 public class Chess {
     Player[] players;
     Board board;
-    Piece selected;
 
     public Chess() {
         players = new Player[2];
         players[0] = new Player();
         players[1] = new Player();
         board = new Board(new CoordV2(8, 8));
-        selected = null;
+
     }
 
     public void initBoard() {
@@ -40,20 +39,26 @@ public class Chess {
 
     public void setSelected(CoordV2 pos) {
 
-        selected = board.getPieceAt(pos.X, pos.Y);
+        board.setSelected(pos);
     }
 
     public void moveTo(Coord pos) {
-        if(selected !=null)
-        board.movePiece(selected.getSquare().getPos(), new CoordV2(pos));
-        else
-            System.out.println("Piece not selected!");
+        board.moveTo(pos);
     }
 
+    @Deprecated
     public void move(Coord pos1, Coord pos2) {
-        board.movePiece(new CoordV2(pos1), new CoordV2(pos2));
+        move(new CoordV2(pos1), new CoordV2(pos2));
+
     }
 
+    @Deprecated
+    private void move(CoordV2 pos1, CoordV2 pos2) {
+
+        board.movePiece(pos1, pos2);
+    }
+
+    @Deprecated
     public void move(String move) {
         Coord start = new Coord();
         Coord end = new Coord();
@@ -67,7 +72,6 @@ public class Chess {
     }
 
     public void printBoard() {
-        System.out.println("Piece Selected: " + selected);
         board.printBoard();
     }
 

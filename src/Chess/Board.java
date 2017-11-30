@@ -6,12 +6,27 @@ import java.util.ArrayList;
 
 public class Board {
     private Square board[][];
+    Piece selected;
+
 
     public Board(CoordV2 size) {
         board = new Square[size.X][size.Y];
         for (int i = 0; i < size.X; ++i)
             for (int j = 0; j < size.X; ++j)
                 board[i][j] = new Square(i, j);
+        selected = null;
+    }
+
+    public void setSelected(CoordV2 pos) {
+
+        selected = getPieceAt(pos.X, pos.Y);
+    }
+
+    public void moveTo(Coord pos) {
+        if (selected != null)
+            movePiece(selected.getSquare().getPos(), new CoordV2(pos));
+        else
+            System.out.println("Piece not selected!");
     }
 
     public void initBoard(Player[] players) {
@@ -46,10 +61,25 @@ public class Board {
         if (!board[pos1.X][pos1.Y].hasPiece())
             return;
         Piece piece = board[pos1.X][pos1.Y].removePiece();
+        int[][] mat = piece.gerDesloc(this);
+
+        for (int[] i : mat) {
+            System.out.println();
+            for (int j : i) {
+                System.out.print("  " + j);
+            }
+        }
+
+
         board[pos2.X][pos2.Y].setPiece(piece);
     }
 
+    public Piece getSelected() {
+        return selected;
+    }
+
     public void printBoard() {
+        System.out.println("Piece Selected: " + selected);
         int p = 1;
         System.out.print("    ");
         for (int i = 0; i < 8; ++i)

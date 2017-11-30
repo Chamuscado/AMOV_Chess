@@ -14,9 +14,7 @@ public class Main {
 
             String cmd = sline.next();
 
-            if (cmd.compareTo("move") == 0)
-                game.move(sline.nextLine());
-            else if (cmd.compareTo("fim") == 0)
+            if (cmd.compareTo("fim") == 0)
                 break;
             else if (cmd.compareTo("select") == 0) {
                 cmd = sline.next();
